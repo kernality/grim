@@ -33,7 +33,7 @@ exit
 #    verify:  sudo true && echo OK
 # 3. clone + run
 mkdir -p "$HOME/workstationdots"
-git clone https://github.com/YOURNAME/grimoire-void "$HOME/workstationdots/grimoire-void"
+git clone https://github.com/kernality/grimoire-void "$HOME/workstationdots/grimoire-void"
 bash "$HOME/workstationdots/grimoire-void/install_scripts/install.sh"
 # 4. reboot
 sudo reboot
