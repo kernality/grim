@@ -13,6 +13,20 @@
 
 ---
 
+## Gallery
+
+### workflow
+
+![Sway](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/sway.png)
+
+### waybar themes
+
+- to launch the rofi theme selector, press `mod+shift+s` then `b`
+
+![wabar themes](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/waybarSwitching.gif)
+
+---
+
 ## At a glance
 
 Boot → **tuigreet** login → **Sway** (tiling Wayland). `Super` is the modifier:
@@ -382,6 +396,30 @@ for command mode). Config: `~/.zshrc`, aliases in `~/.alias`, prompt in
 `~/.config/starship.toml`. Want bash back? `chsh -s /bin/bash`.
 
 ## 22. Grimm Neovim
+
+##### Start Page
+
+![nvim 1](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/1.png)
+
+##### File Tree : mini.files
+
+![nvim 2](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/2.png)
+
+##### Fuzzy Finder: Snacks.nvim
+
+![nvim 6](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/6.png)
+
+##### LSP Support and Autocompletion support
+
+![nvim 3](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/3.png)
+
+##### Gitsigns plugin for visual git status
+
+![nvim 4](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/4.png)
+
+##### Plugin Manager : Lazy and LSP manager : Mason
+
+![nvim 5](https://codeberg.org/bibjaw99/grimmstation-misc/raw/branch/main/screenshots/neovim/5.png)
 
 A full Neovim config. It's modal: Normal mode by default, `i` to insert, `Esc`
 to return. **First launch downloads its plugins** (needs internet, ~1 min); let
