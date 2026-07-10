@@ -40,17 +40,38 @@ bash "$HOME/workstationdots/grimoire-void/install_scripts/install.sh"
 # 3. reboot
 sudo reboot
 ```
-## Table of contents
-1. Read this first (Mint → Void)  · 2. Glossary · 3. Requirements ·
-4. Make the USB & BIOS · 5. Install Void · 6. First boot & bootstrap ·
-7. What the installer does · 8. Log in · 9. Your screen ·
-10. The 12 keys · 11. Full keybindings · 12. Workspaces (auto-assign) ·
-13. Everyday recipes · 14. The Sway stack (every component) ·
-15. wofi (the launcher) · 16. Waybar (the bar) · 17. Notifications ·
-18. Lock, idle & screenshots · 19. runit (services) · 20. xbps (packages) ·
-21. zsh + starship · 22. Grimm Neovim · 23. Laptop power ·
-24. Networking · 25. Bluetooth · 26. Sound · 27. Customising ·
-28. Troubleshooting · 29. Cheat sheet · 30. Credits
+## Table of Contents
+
+- [Read This First (Mint → Void)](#read-this-first-mint--void)
+- [Glossary](#glossary)
+- [Requirements](#requirements)
+- [Create the USB & Configure BIOS](#create-the-usb--configure-bios)
+- [Install Void Linux](#install-void-linux)
+- [First Boot & Bootstrap](#first-boot--bootstrap)
+- [What the Installer Does](#what-the-installer-does)
+- [Log In](#log-in)
+- [Your Desktop](#your-desktop)
+- [The 12 Essential Keys](#the-12-essential-keys)
+- [Complete Keybindings](#complete-keybindings)
+- [Workspaces (Auto-Assignment)](#workspaces-auto-assignment)
+- [Everyday Recipes](#everyday-recipes)
+- [The Sway Stack](#the-sway-stack)
+- [Wofi (Application Launcher)](#wofi-application-launcher)
+- [Waybar (Status Bar)](#waybar-status-bar)
+- [Notifications](#notifications)
+- [Lock Screen, Idle & Screenshots](#lock-screen-idle--screenshots)
+- [runit (Services)](#runit-services)
+- [xbps (Package Manager)](#xbps-package-manager)
+- [zsh + Starship](#zsh--starship)
+- [Grimm Neovim](#grimm-neovim)
+- [Laptop Power Management](#laptop-power-management)
+- [Networking](#networking)
+- [Bluetooth](#bluetooth)
+- [Audio](#audio)
+- [Customising](#customising)
+- [Troubleshooting](#troubleshooting)
+- [Cheat Sheet](#cheat-sheet)
+- [Credits](#credits)
 ---
 ## 1. Read this first (Mint → Void)
 Coming from Linux Mint, five things are different; none are hard:
