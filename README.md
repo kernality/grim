@@ -42,36 +42,45 @@ sudo reboot
 ```
 ## Table of Contents
 
-- [Read This First (Mint → Void)](#read-this-first-mint--void)
-- [Glossary](#glossary)
-- [Requirements](#requirements)
-- [Create the USB & Configure BIOS](#create-the-usb--configure-bios)
-- [Install Void Linux](#install-void-linux)
-- [First Boot & Bootstrap](#first-boot--bootstrap)
-- [What the Installer Does](#what-the-installer-does)
-- [Log In](#log-in)
-- [Your Desktop](#your-desktop)
-- [The 12 Essential Keys](#the-12-essential-keys)
-- [Complete Keybindings](#complete-keybindings)
-- [Workspaces (Auto-Assignment)](#workspaces-auto-assignment)
-- [Everyday Recipes](#everyday-recipes)
-- [The Sway Stack](#the-sway-stack)
-- [Wofi (Application Launcher)](#wofi-application-launcher)
-- [Waybar (Status Bar)](#waybar-status-bar)
-- [Notifications](#notifications)
-- [Lock Screen, Idle & Screenshots](#lock-screen-idle--screenshots)
-- [runit (Services)](#runit-services)
-- [xbps (Package Manager)](#xbps-package-manager)
-- [zsh + Starship](#zsh--starship)
-- [Grimm Neovim](#grimm-neovim)
-- [Laptop Power Management](#laptop-power-management)
-- [Networking](#networking)
-- [Bluetooth](#bluetooth)
-- [Audio](#audio)
-- [Customising](#customising)
-- [Troubleshooting](#troubleshooting)
-- [Cheat Sheet](#cheat-sheet)
-- [Credits](#credits)
+### Getting Started
+1. Read This First (Mint → Void)
+2. Glossary
+3. Requirements
+4. Create the USB & Configure BIOS
+5. Install Void Linux
+6. First Boot & Bootstrap
+7. What the Installer Does
+
+### Using the System
+8. Log In
+9. Your Desktop
+10. The 12 Essential Keys
+11. Complete Keybindings
+12. Workspaces (Auto-Assignment)
+13. Everyday Recipes
+
+### Components
+14. The Sway Stack
+15. Wofi (Application Launcher)
+16. Waybar (Status Bar)
+17. Notifications
+18. Lock Screen, Idle & Screenshots
+
+### System Administration
+19. runit (Services)
+20. xbps (Package Manager)
+21. zsh + Starship
+22. Grimm Neovim
+23. Laptop Power Management
+24. Networking
+25. Bluetooth
+26. Audio
+
+### Extras
+27. Customising
+28. Troubleshooting
+29. Cheat Sheet
+30. Credits
 ---
 ## 1. Read this first (Mint → Void)
 Coming from Linux Mint, five things are different; none are hard:
