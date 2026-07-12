@@ -2,7 +2,8 @@
 set -Eeuo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; source "$DIR/mini_functions.sh"
 sudo xbps-install -y tlp
-[[ -e /var/service/acpid || -L /var/service/acpid ]] && sudo rm -f /var/service/acpid
+[[ -e /var/service/acpid || -L /var/service/acpid ]] && sudo sv down acpid 2>/dev/null || true
+  sudo rm -f /var/service/acpid
 sudo mkdir -p /etc/elogind/logind.conf.d
 sudo tee /etc/elogind/logind.conf.d/10-grimoire.conf >/dev/null <<'CONF'
 [Login]

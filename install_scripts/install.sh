@@ -4,8 +4,8 @@ IFS=$'\n\t'
 trap 'printf "\n[ERROR] line %s: %s\n" "$LINENO" "$BASH_COMMAND" >&2' ERR
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$DIR/scripts/mini_functions.sh"
-(( EUID != 0 )) || error "Run as your regular user, not root."
-command -v sudo >/dev/null || error "sudo is required"
+(( EUID != 0 )) || die "Run as your regular user, not root."
+command -v sudo >/dev/null || die "sudo is required"
 sudo -v
 info "Synchronising and updating Void"
 sudo xbps-install -Suy

@@ -5,6 +5,5 @@ make
 cmake
 tree-sitter
 nodejs
-npm
 python3-pip
 shellcheck

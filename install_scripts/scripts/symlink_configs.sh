@@ -16,7 +16,7 @@ while IFS= read -r row; do
   name="$(jq -r '.name' <<<"$row")"
   src="$(expand_home "$(jq -r '.config_src' <<<"$row")")"
   dst="$(expand_home "$(jq -r '.config_des' <<<"$row")")"
-  [[ -e "$src" || -L "$src" ]] || error "Missing source for $name: $src"
+  [[ -e "$src" || -L "$src" ]] || die "Missing source for $name: $src"
   mkdir -p "$(dirname "$dst")"
   if [[ -e "$dst" && ! -L "$dst" ]]; then
     target="$backup/$name"; [[ ! -e "$target" ]] || target="$backup/${name}-$(date +%s%N)"

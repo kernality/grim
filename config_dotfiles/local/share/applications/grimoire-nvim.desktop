@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+Comment=Edit files in Neovim
+Icon=nvim
+Exec=foot -e nvim %F
+Terminal=false
+Categories=Utility;TextEditor;Development;
+MimeType=text/plain;text/markdown;text/csv;
+StartupNotify=true

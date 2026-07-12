@@ -6,3 +6,4 @@ include ~/.config/sway/keymaps.conf
 include ~/.config/sway/windowrules.conf
 include ~/.config/sway/workspaces.conf
 include ~/.config/sway/local.conf
+include ~/.config/sway/workspaces.local.conf

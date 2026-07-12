@@ -7,7 +7,7 @@ for pkg in pipewire wireplumber alsa-pipewire libspa-bluetooth rtkit; do
 done
 sudo mkdir -p /etc/pipewire/pipewire.conf.d /etc/alsa/conf.d
 link_required() {
-  [[ -e "$1" ]] || error "Missing packaged example: $1"
+  [[ -e "$1" ]] || die "Missing packaged example: $1"
   sudo ln -sfn "$1" "$2"
 }
 link_required /usr/share/examples/wireplumber/10-wireplumber.conf \

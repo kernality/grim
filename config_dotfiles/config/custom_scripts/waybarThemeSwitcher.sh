@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 root="$HOME/.local/share/config_dotfiles/config/waybar"
-swaymsg mode default >/dev/null 2>&1 || true
 labels=("Block 1" "Block 2" "Block 3" "Block 4" "Floating" "Underline")
 selected="$(printf '%s\n' "${labels[@]}" | wofi --dmenu -i --prompt 'Waybar theme' --width 360 --lines 6)"
 [[ -n "$selected" ]] || exit 0
@@ -16,5 +15,4 @@ target="$root/themes/$theme/style.css"
 tmp="$root/.style.css.$$.new"
 ln -s "themes/$theme/style.css" "$tmp"
 mv -Tf -- "$tmp" "$root/style.css"
-swaymsg reload >/dev/null
 notify-send 'Waybar' "Theme: $selected"
