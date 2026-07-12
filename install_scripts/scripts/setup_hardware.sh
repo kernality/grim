@@ -42,5 +42,5 @@ if [[ "$vendor" == "0x8086" ]]; then
 
     success "Intel graphics and microcode configured for ${#kernels[@]} installed kernel series."
 else
-    warn "Non-Intel GPU detected; skipping Intel-specific packages and initramfs regeneration."
+    warning "Non-Intel GPU detected; skipping Intel-specific packages and initramfs regeneration."
 fi
