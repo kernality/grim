@@ -1,69 +1,28 @@
 #!/usr/bin/env bash
-
 BOOKMARKS_DIRECTORY="$HOME/.local/share/config_dotfiles/bookmarks"
-
-# browser modes
-TAB_MODE="firefox-developer-edition --new-tab"
-WINDOW_MODE="firefox-developer-edition --new-window"
-PRIVATE_MODE="firefox-developer-edition --private-window"
-
-# BRAVE
-# TAB_MODE="brave --new-tab --url"
-# WINDOW_MODE="brave --new-window"
-# PRIVATE_MODE="brave --incognito --new-tab --url"
-
-# validate directory
-if [[ ! -d "$BOOKMARKS_DIRECTORY" ]];then 
-  notify-send -u critical "Create your bookmarks.text file in $BOOKMARKS_DIRECTORY" 2>/dev/null
-  exit 1
+TAB_MODE="firefox --new-tab"; WINDOW_MODE="firefox --new-window"; PRIVATE_MODE="firefox --private-window"
+if [[ ! -d "$BOOKMARKS_DIRECTORY" ]]; then
+ notify-send -u critical "Create your bookmarks .txt files in $BOOKMARKS_DIRECTORY" 2>/dev/null; exit 1
 fi
-
-# browser command based on the mode, default is tab mode
-browser_mode="${1:-tab}"
-case "$browser_mode" in
-  tab) browser_command=$TAB_MODE ;;
-  window)  browser_command=$WINDOW_MODE ;;
-  private) browser_command=$PRIVATE_MODE ;;
-  *)
-    notify-send "Invalid mode:'$browser_mode', try tab widnow or private" 2>/dev/null
-    exit 1
-    ;;
+case "${1:-tab}" in
+ tab) browser_command=$TAB_MODE ;;
+ window) browser_command=$WINDOW_MODE ;;
+ private) browser_command=$PRIVATE_MODE ;;
+ *) notify-send "Invalid mode (tab|window|private)" 2>/dev/null; exit 1 ;;
 esac
-
-# function to remove empty spaces and lines from a given array
-remove_empty_lines_and_spaces() {
-  sed -E 's/^[[:space:]]*//;s/[[:space:]]*$//;/^$/d' "$@"
-}
-
-# selection_mode : all or category : by default show all bookmarks
-bookmarks_selection_mode="${2:-all}"
-# selecting bookmarks
-if [[ "$bookmarks_selection_mode" == "all" ]]; then
-  # store all the bookmarks
-  mapfile -t bookmarks < <(remove_empty_lines_and_spaces "$BOOKMARKS_DIRECTORY"/*.txt)
-  # exit if bookmarks is empty
-  [[ ${#bookmarks[@]} -gt 0 ]] || exit 0
-  selected=$(printf '%s\n' "${bookmarks[@]}" | sort | rofi -dmenu -p "Bookmarks" -theme-str 'window { width: 50%; }')
+strip() { sed -E 's/^[[:space:]]*//;s/[[:space:]]*$//;/^$/d' "$@"; }
+if [[ "${2:-all}" == "all" ]]; then
+ mapfile -t bookmarks < <(strip "$BOOKMARKS_DIRECTORY"/*.txt)
+ [[ ${#bookmarks[@]} -gt 0 ]] || exit 0
+ selected=$(printf '%s\n' "${bookmarks[@]}" | sort | wofi --dmenu -i --prompt "Bookmarks" --width 800)
 else
-  # store available categories file in an array
-  mapfile -t categories < <(find "$BOOKMARKS_DIRECTORY" -maxdepth 1 -type f -name "*.txt" -printf "%f\n")
-  # if there's no category file then exit
-  [[ ${#categories[@]} -gt 0 ]] || exit 0
-  # print available bookmark of a category and take input from rofi
-  selected_category=$(printf '%s\n' "${categories[@]}" | sort | rofi -dmenu -p "Categories" -theme-str 'window { width: 25%; }')
-  # exit if there is no selected category
-  [[ -n "$selected_category" ]] || exit 0
-  # file path of the selected category
-  selected_category_file="$BOOKMARKS_DIRECTORY/$selected_category"
-  # bookmarks in selected category
-  mapfile -t bookmarks < <(remove_empty_lines_and_spaces "$selected_category_file")
-  # exit if no category is selected
-  [[ ${#bookmarks[@]} -gt 0 ]] || exit 0
-  # available bookmarks in selected category
-  selected=$(printf '%s\n' "${bookmarks[@]}" | sort | rofi -dmenu -p "$selected_category" -theme-str 'window { width: 50%; }')
+ mapfile -t categories < <(find "$BOOKMARKS_DIRECTORY" -maxdepth 1 -type f -name "*.txt" -printf "%f\n")
+ [[ ${#categories[@]} -gt 0 ]] || exit 0
+ category=$(printf '%s\n' "${categories[@]}" | sort | wofi --dmenu -i --prompt "Categories" --width 400)
+ [[ -n "$category" ]] || exit 0
+ mapfile -t bookmarks < <(strip "$BOOKMARKS_DIRECTORY/$category")
+ [[ ${#bookmarks[@]} -gt 0 ]] || exit 0
+ selected=$(printf '%s\n' "${bookmarks[@]}" | sort | wofi --dmenu -i --prompt "$category" --width 800)
 fi
-
-# exit if nothing is selected
 [[ -n "$selected" ]] || exit 0
-
 setsid $browser_command "$selected" >/dev/null 2>&1 &
